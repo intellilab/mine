@@ -1,0 +1,28 @@
+{
+  "name": "mine",
+  "version": "0.0.0",
+  "description": "Mine game",
+  "keywords": [
+    "mine"
+  ],
+  "author": "Gerald <i@gerald.top>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gulp && gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-order": "^1.1.1"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intellilab/mine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/intellilab/mine/issues"
+  },
+  "homepage": "https://github.com/intellilab/mine#readme"
+}
