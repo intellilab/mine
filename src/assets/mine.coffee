@@ -22,10 +22,12 @@ class MineCore
   setLevel: (level) ->
     data = @levels[level]
     return @setLevel @DEFAULT_LEVEL unless data
-    @data = Object.assign(
+    @data = (
       level: level
       closed: data.width * data.height - data.mines
-    , data)
+    )
+    for k, v of data
+      @data[k] = v
 
   init: (index) ->
     @cells = []
