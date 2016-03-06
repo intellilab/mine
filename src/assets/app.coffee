@@ -103,18 +103,18 @@ class MineApp
     setTimeout toggle, 200
 
   onEnd: (e) =>
-    if e.index == null
-      @elMsg.textContent = '恭喜你扫雷成功！'
-    else
-      for cell, i in @core.cells
-        el = @els[i]
-        if cell.mine
-          el.classList.add 'mine-marked'
-          el.classList.add 'mine-exploded' if i is e.index
-        else if cell.marked
-          el.classList.remove 'mine-marked'
-          el.classList.add 'mine-wrong'
+    for cell, i in @core.cells
+      el = @els[i]
+      if cell.mine
+        el.classList.add 'mine-marked'
+        el.classList.add 'mine-exploded' if i is e.index
+      else if cell.marked
+        el.classList.remove 'mine-marked'
+        el.classList.add 'mine-wrong'
+    if e.index?
       @elMsg.textContent = if e.index < 0 then '扫雷失败！' else '你踩雷了！'
+    else
+      @elMsg.textContent = '恭喜你扫雷成功！'
     do @stopTimer
     @status.state = @STOPPED
 

@@ -5,13 +5,14 @@
 #mine-game span {
   position: relative;
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   box-sizing: border-box;
-  font-size: 14px;
-  line-height: 20px;
+  font-size: 16px;
+  line-height: 24px;
   text-align: center;
   vertical-align: top;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.4);
 }
 
 span.mine-close {
