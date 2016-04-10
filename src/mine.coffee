@@ -37,12 +37,11 @@ class MineCore
     surroundings = @getSurroundings index
     surroundings.push index
     for i in surroundings
-      @cells[i] = (
+      @cells[i] =
         mine: 0
         number: 0
         open: false
         marked: false
-      )
     _total = total - surroundings.length
     offset = 0
     for i in [0 ... _total]
@@ -76,21 +75,19 @@ class MineCore
     cell = @cells[index]
     return if not cell or cell.open
     cell.marked = not cell.marked
-    @emit(
+    @emit
       type: 'mark'
       index: index
-    )
 
   open: (index) ->
     cell = @cells[index]
     return if cell.open or cell.marked
     cell.open = true
     @data.closed -= 1
-    @emit(
+    @emit
       type: 'open'
       index: index
-    )
-    @spread index if not cell.number
+    @spread index unless cell.number
     do @end unless @data.closed
 
   checkOpen: (index) ->
@@ -126,24 +123,22 @@ class MineCore
       allMarked = allMarked and (not cell.mine or cell.marked)
       incorrect = incorrect or not cell.mine and cell.marked
     return @end -1 if incorrect
-    return @spark index if not allMarked
-    @spread index if not allOpen
+    return @spark index unless allMarked
+    @spread index unless allOpen
 
   spark: (index) ->
     surroundings = @getSurroundings index
     surroundings = surroundings.filter (i) =>
       cell = @cells[i]
       not cell.open and not cell.marked
-    @emit(
+    @emit
       type: 'spark'
       indexes: surroundings
-    )
 
   end: (index) ->
     # index is -1: incorrect mark
     # index is nonzero: clicked on mine
     # index is null: win
-    @emit(
+    @emit
       type: 'end'
       index: index
-    )
