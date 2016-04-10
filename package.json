@@ -8,7 +8,8 @@
   "author": "Gerald <i@gerald.top>",
   "license": "MIT",
   "scripts": {
-    "dev": "gulp && gulp watch"
+    "dev": "gulp && gulp watch",
+    "version": "sh tools/deploy-gh.sh"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
